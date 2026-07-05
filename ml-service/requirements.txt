@@ -1,0 +1,18 @@
+# ML packages
+megadetector
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+torchvision
+pillow
+numpy<2.0.0
+opencv-python-headless
+onnx>=1.14.0
+onnx2torch
+
+# Backend runtime dependencies needed by the ML Lambda's import chain:
+#   aws.py / storage.py / notifier.py / utils.py  → boto3
+#   config.py                                      → pydantic-settings
+#   catalog.py                                     → oci
+boto3
+pydantic-settings>=2.5.2
+oci>=2.117.0

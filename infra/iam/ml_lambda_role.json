@@ -1,0 +1,79 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowS3ModelsRead",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:GetObjectVersion",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::ecolens-ml-models-*",
+        "arn:aws:s3:::ecolens-ml-models-*/*"
+      ]
+    },
+    {
+      "Sid": "AllowS3DetectionsWrite",
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:DeleteObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::ecolens-detections-*",
+        "arn:aws:s3:::ecolens-detections-*/*"
+      ]
+    },
+    {
+      "Sid": "AllowS3UploadRead",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::ecolens-uploads-*",
+        "arn:aws:s3:::ecolens-uploads-*/*"
+      ]
+    },
+    {
+      "Sid": "AllowS3ThumbnailsWrite",
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::ecolens-thumbnails-*",
+        "arn:aws:s3:::ecolens-thumbnails-*/*"
+      ]
+    },
+    {
+      "Sid": "AllowSNSPublish",
+      "Effect": "Allow",
+      "Action": [
+        "sns:Publish"
+      ],
+      "Resource": [
+        "arn:aws:sns:*:*:ecolens-tags"
+      ]
+    },
+    {
+      "Sid": "AllowCloudWatchLogs",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": [
+        "arn:aws:logs:*:*:log-group:/aws/lambda/ecolens-*"
+      ]
+    }
+  ]
+}

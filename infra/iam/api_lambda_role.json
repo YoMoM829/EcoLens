@@ -1,0 +1,73 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowS3BucketsAccess",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:DeleteObject",
+        "s3:ListBucket",
+        "s3:GetObjectVersion"
+      ],
+      "Resource": [
+        "arn:aws:s3:::ecolens-uploads-*",
+        "arn:aws:s3:::ecolens-uploads-*/*",
+        "arn:aws:s3:::ecolens-thumbnails-*",
+        "arn:aws:s3:::ecolens-thumbnails-*/*",
+        "arn:aws:s3:::ecolens-detections-*",
+        "arn:aws:s3:::ecolens-detections-*/*",
+        "arn:aws:s3:::ecolens-ml-models-*",
+        "arn:aws:s3:::ecolens-ml-models-*/*"
+      ]
+    },
+    {
+      "Sid": "AllowSNSPublish",
+      "Effect": "Allow",
+      "Action": [
+        "sns:Publish",
+        "sns:Subscribe",
+        "sns:Unsubscribe",
+        "sns:SetSubscriptionAttributes",
+        "sns:GetSubscriptionAttributes",
+        "sns:ListSubscriptionsByTopic"
+      ],
+      "Resource": [
+        "arn:aws:sns:*:*:ecolens-tags"
+      ]
+    },
+    {
+      "Sid": "AllowCloudWatchLogs",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": [
+        "arn:aws:logs:*:*:log-group:/aws/lambda/ecolens-*"
+      ]
+    },
+    {
+      "Sid": "AllowSecretsManagerRead",
+      "Effect": "Allow",
+      "Action": [
+        "secretsmanager:GetSecretValue"
+      ],
+      "Resource": [
+        "arn:aws:secretsmanager:*:*:secret:ecolens/*"
+      ]
+    },
+    {
+      "Sid": "AllowInvokeMLLambda",
+      "Effect": "Allow",
+      "Action": [
+        "lambda:InvokeFunction"
+      ],
+      "Resource": [
+        "arn:aws:lambda:*:*:function:ecolens-prod-media-processor"
+      ]
+    }
+  ]
+}

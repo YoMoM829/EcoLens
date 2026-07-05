@@ -1,0 +1,21 @@
+{
+  "items": [
+    {
+      "media_id": "abc123",
+      "user_id": "testuser",
+      "file_type": "image",
+      "status": "processed",
+      "source_url": "https://.s3.ap-southeast-4.amazonaws.com/uploads/abc123.jpg",
+      "thumbnail_url": "https://.s3.ap-southeast-4.amazonaws.com/thumbnails/abc123.jpg",
+      "original_key": "uploads/abc123.jpg",
+      "thumbnail_key": "thumbnails/abc123.jpg",
+      "detections_key": "detections/abc123.json",
+      "tags": {
+        "koala": 1
+      },
+      "animal_detected": true,
+      "top_confidence": 0.0,
+      "created_at": "2026-06-04T21:05:39.189204+00:00"
+    }
+  ]
+}

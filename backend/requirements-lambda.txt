@@ -1,0 +1,19 @@
+# Minimal runtime dependencies for the API Lambda (ZIP package).
+# Excludes packages only needed locally or in the ML Lambda.
+#
+# Removed vs requirements.txt:
+#   uvicorn        — local dev server; Mangum handles the Lambda adapter, uvicorn is never called
+#   httpx          — was only used in auth.py for the JWKS fetch; replaced with stdlib urllib
+#   requests       — not imported anywhere in production code
+#   Pillow         — only tagging_handler.py uses it; that runs in the ML Lambda, not here
+#   Pillow         — only tagging_handler.py uses it; that runs in the ML Lambda, not here
+
+fastapi>=0.115.0
+mangum>=0.17.0
+pydantic>=2.7,<3.0
+pydantic-settings>=2.5.2
+python-multipart>=0.0.9,<1.0
+boto3>=1.26.0
+python-jose[cryptography]>=3.3.0
+httpx>=0.27.2
+oci>=2.117.0
